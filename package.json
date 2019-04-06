@@ -1,0 +1,20 @@
+{
+  "name": "toxicbot",
+  "version": "0.9.3",
+  "description": "legendary bot 10/10 ign",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "_programmeKid",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.4.0",
+    "express": "^4.16.3",
+    "ffmpeg-binaries": "^4.0.0",
+    "node-opus": "^0.3.0",
+    "opusscript": "0.0.6",
+    "request": "^2.88.0",
+    "ytdl-core": "^0.24.0"
+  }
+}

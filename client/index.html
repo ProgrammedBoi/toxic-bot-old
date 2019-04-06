@@ -1,0 +1,50 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<h1>Admin Panel</h1>
+<p>Set Activity</p>
+<input type="text" id="activity" placeholder="Activity">
+<select id="activitytype">
+	<option value="PLAYING" selected>PLAYING</option>
+	<option value="LISTENING">LISTENING</option>
+	<option value="WATCHING">WATCHING</option>
+	<option value="STREAMING">STREAMING</option>
+</select>
+<button id="setactivity">Set</button>
+<p>Run command</p>
+<input type="text" id="command" placeholder="Command">
+<button id="run">Run</button>
+<p id="output"></p>
+<p>Change Nickname</p>
+<input type="text" id="nick" placeholder="New Nickname">
+<button id="nickbutton">Change</button>
+
+<script type="text/javascript">
+	//Made by _programmeKid
+
+	$(document).ready(function(){
+		$("#setactivity").click(function(){
+			let activity = $("#activity").val();
+			let activitytype = $("#activitytype").val();
+
+			$.post(window.location.hostname + "/activity",{game: activity, type: activitytype},function(data,status){
+				console.log("{\n   Data: "+'"'+data+'"'+"\n   Status: "+'"'+status+'"'+"\n}");
+			});
+		});
+
+		$("#run").click(function(){
+			let cmd = $("#command").val();
+
+			$.post(window.location.hostname + "/command",{command: cmd},function(data,status){
+				console.log("{\n   Data: "+'"'+data+'"'+"\n   Status: "+'"'+status+'"'+"\n}");
+				$("#output").text(data);
+			});
+		});
+
+		$("#nickbutton").click(function(){
+			let newnick = $("#nick").val();
+
+			$.post(window.location.hostname + "/nick",{nick: newnick},function(data,status){
+				console.log("{\n   Data: "+'"'+data+'"'+"\n   Status: "+'"'+status+'"'+"\n}");
+			});
+		});
+	});
+</script>
